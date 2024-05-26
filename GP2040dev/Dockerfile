@@ -7,6 +7,7 @@ RUN pacman-key --init && \
     pacman -S --noconfirm extra/neovim extra/fd extra/unzip extra/lazygit extra/ripgrep && \
     git clone https://github.com/koma75/nvConfig.git /root/.config/nvim
 RUN git clone https://github.com/raspberrypi/pico-sdk.git && cd pico-sdk && git submodule update --init
+COPY ./dotfiles/.bashrc /root/
 
 ENV PICO_SDK_PATH=/pico-sdk
 ENV CMAKE_EXPORT_COMPILE_COMMANDS=1
