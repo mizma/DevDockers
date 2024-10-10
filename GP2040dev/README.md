@@ -14,7 +14,7 @@ replace `name:tag` with whatever is appropriate.
 ## run image
 
 ~~~bash
-docker run -it -v /path/to/GP2040-ce:/root/GP2040-ce name:tag
+docker run --name gp2040ce -it -v /path/to/GP2040-ce:/root/GP2040-ce name:tag
 ~~~
 
 name:tag should be whatever you selected at build-time.
