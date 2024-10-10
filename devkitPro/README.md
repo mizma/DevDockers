@@ -12,7 +12,7 @@ docker build --tag name:tag .
 ## run image
 
 ~~~bash
-docker run -it -v /path/to/devRepo:/root/devRepo name:tag
+docker run --name devkitpro -it -v /path/to/devRepo:/root/devRepo name:tag
 ~~~
 
 ## compile
