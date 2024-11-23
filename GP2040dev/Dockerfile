@@ -1,7 +1,12 @@
 FROM archlinux:base
+# Install reflector
 RUN pacman-key --init && \
     pacman -Syu --noconfirm && \
-    pacman -S --noconfirm extra/git core/make extra/cmake core/ca-certificates core/gcc core/bash && \
+    pacman -S --noconfirm reflector
+# Update the pacman mirror list
+RUN reflector --verbose --latest 10 --save /etc/pacman.d/mirrorlis
+
+RUN pacman -S --noconfirm extra/git core/make extra/cmake core/ca-certificates core/gcc core/bash && \
     pacman -S --noconfirm extra/arm-none-eabi-gcc extra/arm-none-eabi-newlib && \
     pacman -S --noconfirm core/python extra/nodejs extra/npm extra/clang && \
     pacman -S --noconfirm extra/neovim extra/fd extra/unzip extra/lazygit extra/ripgrep && \
