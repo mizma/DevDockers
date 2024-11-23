@@ -1,7 +1,12 @@
 FROM archlinux:base
+# Install reflector
 RUN pacman-key --init && \
     pacman -Syu --noconfirm && \
-    pacman -S --noconfirm extra/git core/ca-certificates core/bash && \
+    pacman -S --noconfirm reflector
+# Update the pacman mirror list
+RUN reflector --verbose --latest 10 --save /etc/pacman.d/mirrorlis
+
+RUN pacman -S --noconfirm extra/git core/ca-certificates core/bash && \
     pacman --needed --noconfirm -S git core/python python-pip python-pipx libffi && \
     pacman -S --noconfirm arm-none-eabi-gcc avr-gcc avrdude dfu-programmer dfu-util && \
     pacman -S --noconfirm base-devel gcc wget zip avr-binutils avr-libc arm-none-eabi-binutils arm-none-eabi-newlib && \

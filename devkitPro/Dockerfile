@@ -1,11 +1,17 @@
 FROM archlinux:base
+
+# Install reflector
+RUN pacman-key --init && \
+    pacman -Syu --noconfirm && \
+    pacman -S --noconfirm reflector
+# Update the pacman mirror list
+RUN reflector --verbose --latest 10 --save /etc/pacman.d/mirrorlis
+
 ENV DEVKITPRO=/opt/devkitpro
 ENV DEVKITARM=/opt/devkitpro/devkitARM
 ENV DEVKITPPC=/opt/devkitpro/devkitPPC
 ADD https://pkg.devkitpro.org/devkitpro-keyring.pkg.tar.xz /root/
-RUN pacman-key --init && \
-    pacman -Syu --noconfirm && \
-    pacman-key --recv BC26F752D25B92CE272E0F44F7FD5492264BB9D0 --keyserver keyserver.ubuntu.com && \
+RUN pacman-key --recv BC26F752D25B92CE272E0F44F7FD5492264BB9D0 --keyserver keyserver.ubuntu.com && \
     pacman-key --lsign BC26F752D25B92CE272E0F44F7FD5492264BB9D0 && \
     pacman -U --noconfirm /root/devkitpro-keyring.pkg.tar.xz
 RUN echo "[dkp-libs]" >> /etc/pacman.conf && \
@@ -23,7 +29,7 @@ COPY ./dotfiles/.bashrc /root/
 # Following groups can be installed for convenience
 # - gp32-dev
 # - gp2x-dev
-# - gba-dev 
+# - gba-dev
 # - nds-dev
 # - 3ds-dev
 # - gamecube-dev
