@@ -11,10 +11,15 @@ RUN pacman -S --noconfirm extra/git core/make extra/cmake core/ca-certificates c
     pacman -S --noconfirm core/python extra/nodejs-lts-iron extra/npm extra/clang && \
     pacman -S --noconfirm extra/neovim extra/fd extra/unzip extra/lazygit extra/ripgrep && \
     git clone https://github.com/koma75/nvConfig.git /root/.config/nvim
-RUN git clone https://github.com/raspberrypi/pico-sdk.git && cd pico-sdk && git submodule update --init
+RUN git clone https://github.com/raspberrypi/pico-sdk.git && \
+    cd pico-sdk && \
+    git fetch --tags && \
+    git checkout 1.5.1 && \
+    git submodule update --init
+RUN git config --global --add safe.directory /root/GP2040-ce
 COPY ./dotfiles/.bashrc /root/
 
 ENV PICO_SDK_PATH=/pico-sdk
 ENV CMAKE_EXPORT_COMPILE_COMMANDS=1
-ENV GP2040_BOARDCONFIG=pico
+ENV GP2040_BOARDCONFIG=Pico
 CMD /usr/bin/bash

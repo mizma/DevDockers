@@ -25,7 +25,8 @@ or refer to something like [tldr](https://github.com/dbrgn/tealdeer)
 ## compile
 
 1. set the environment variable GP2040_BOARDCONFIG accordingly
-2. cd into /root/GP2040-ce/build and run `cmake .. && make`
+2. `mkdir /root/GP2040-ce/build`
+3. `cd /root/GP2040-ce/build && cmake .. && make`
 
 ## Note on use
 
