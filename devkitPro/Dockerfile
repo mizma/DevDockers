@@ -23,7 +23,7 @@ RUN pacman -Syu --noconfirm && \
     pacman -S --noconfirm core/python extra/nodejs extra/npm extra/clang && \
     pacman -S --noconfirm switch-dev dkp-linux/devkitARM && \
     pacman -S --noconfirm extra/neovim extra/fd extra/unzip extra/lazygit extra/ripgrep core/less && \
-    git clone https://github.com/koma75/nvConfig.git /root/.config/nvim
+    git clone https://github.com/mizma/nvimrc.git /root/.config/nvim
 COPY ./dotfiles/.bashrc /root/
 
 # Following groups can be installed for convenience
