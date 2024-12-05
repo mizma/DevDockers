@@ -13,7 +13,6 @@ RUN pacman -S --noconfirm extra/git core/ca-certificates core/bash && \
     pacman -S --noconfirm extra/neovim extra/fd extra/unzip extra/lazygit extra/ripgrep && \
     git clone https://github.com/mizma/nvimrc.git /root/.config/nvim
 RUN pipx install qmk && /root/.local/bin/qmk setup -y
-COPY ./dotfiles/.bashrc /root/
-COPY ./dotfiles/.ssh /root/
+COPY ./dotfiles/ /root/
 CMD /usr/bin/bash
 
