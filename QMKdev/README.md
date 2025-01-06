@@ -19,3 +19,9 @@ docker run --name qmkdev -it name:tag
 * If using git inside, configure git user.name and user.email, setup SSH
 * set the origin URL to your own repo
 * Follow instructions on [qmk documentation site](doc.qmk.fm)
+
+### vial
+
+* run `cd /root/vial-qmk && make git-submodule` to prepare environment.
+  * check `qmk doctor` afterwards
+* build the firmware with the vial keymap using `make your/keyboard:vial`

@@ -13,6 +13,7 @@ RUN pacman -Syy --noconfirm extra/git core/ca-certificates core/bash core/openss
     pacman -S --noconfirm extra/neovim extra/fd extra/unzip extra/lazygit extra/ripgrep core/less core/openssh && \
     git clone https://github.com/mizma/nvimrc.git /root/.config/nvim
 RUN pipx install qmk && /root/.local/bin/qmk setup -y
+RUN git clone https://github.com/vial-kb/vial-qmk.git /root/vial-qmk
 COPY ./dotfiles/ /root/
 CMD /usr/bin/bash
 
