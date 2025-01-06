@@ -2,7 +2,7 @@ FROM archlinux:base
 # Install reflector
 RUN pacman-key --init && \
     pacman -Syu --noconfirm && \
-    pacman -S --noconfirm reflector
+    pacman -Syy --noconfirm reflector
 # Update the pacman mirror list
 RUN reflector --verbose --latest 10 --save /etc/pacman.d/mirrorlis
 
