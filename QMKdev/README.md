@@ -28,5 +28,5 @@ docker run --name qmkdev -it name:tag
 
 ### Copy the build file
 
-* `docker cp qmkdev:/root/qmk-firmware/mzmkb_slimdash_rev1_default.uf2 .`
+* `docker cp qmkdev:/root/qmk_firmware/mzmkb_slimdash_rev1_default.uf2 .`
 * `docker cp qmkdev:/root/vial-qmk/mzmkb_slimdash_rev1_vial.uf2 .`
