@@ -6,7 +6,7 @@ compilation and editing environment.
 ## Build Image
 
 ~~~bash
-docker build --tag name:tag .
+docker buildx build --tag name:tag .
 ~~~
 
 ## run image
