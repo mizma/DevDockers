@@ -5,7 +5,7 @@ Simple archlinux based Dockerfile to setup basic QMK compilation and editing env
 ## Build Image
 
 ~~~bash
-docker build --tag name:tag .
+docker buildx build --tag name:tag .
 ~~~
 
 ## run image
